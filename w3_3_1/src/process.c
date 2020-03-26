@@ -31,6 +31,7 @@ int main(void) {
 		printf("child is working!\n");
 		execlp("bin/ls", "ls", NULL);
 		printf("child is done!\n");
+		exit(0);
 	} else{
 		printf("fork error!\n");
 	}
