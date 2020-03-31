@@ -24,7 +24,7 @@ void enter_region(int process){		// process is 0 or 1
 	int other = 1 - process;		// the opposite of process
 	interested[process] = TRUE;		// show current process is interested
 	turn = process;					// set flag for current process to access critical region
-	while(turn == process && interested[other] == TRUE){}	// null statement
+	while(turn == process && interested[other] == TRUE){}	// busy waiting
 }
 
 void leave_region(int process){		// process is leaving

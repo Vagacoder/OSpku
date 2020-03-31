@@ -6,6 +6,19 @@
  Copyright   : Your copyright notice
  Description : textbook P. 131 Figure 2-28
  	 	 	 	 The producer-consumer problem using semaphore
+
+ 	 	 	 	 Note: In this example, semaphore is not same as described in
+ 	 	 	 	 textbook;
+ 	 	 	 	 	 	 	 	 This ex			  Textbook
+				 Init val		   1					1
+
+				 P before test     s--					None
+				 P test			  s<0					s>0		s==0
+				 P test op		  sleep					s--		s-- and sleep
+
+				 V before test	   s++					None
+				 V test 		  s<=0					s<=0
+				 V test op		  wakeup				s++ and wakeup
  ============================================================================
  */
 

@@ -5,7 +5,14 @@
  Version     :
  Copyright   : Your copyright notice
  Description : textbook P.129 figure 2.27
- 	 	 	 	 The producer-consumer problem with a fatal race condition
+ 	 	 	 	 The producer-consumer problem with a !FATAL! race condition
+
+ 	 	 	 	 To solve the problem, add wakeup waiting bit:
+ 	 	 	 	 1. When a wakeup is sent to a process that is still awake,
+ 	 	 	 	 this bit is set;
+ 	 	 	 	 2. The consumer clears the wakeup waiting bit in every iteration
+ 	 	 	 	 of the loop.
+
  ============================================================================
  */
 
