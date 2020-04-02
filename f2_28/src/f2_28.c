@@ -7,7 +7,8 @@
  Description : textbook P. 131 Figure 2-28
  	 	 	 	 The producer-consumer problem using semaphore
 
- 	 	 	 	 Note: In this example, semaphore is not same as described in
+ 	 	 	 	 Note:
+ 	 	 	 	 (1). In this example, semaphore is not same as described in
  	 	 	 	 textbook;
  	 	 	 	 	 	 	 	 This ex			  Textbook
 				 Init val		   1					1
@@ -19,6 +20,9 @@
 				 V before test	   s++					None
 				 V test 		  s<=0					s<=0
 				 V test op		  wakeup				s++ and wakeup
+
+				 (2) 2x P operations (before insert/remove) can NOT be inverted;
+				 2x V operations (after insert/remove) can be inverted;
  ============================================================================
  */
 
