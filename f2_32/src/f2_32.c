@@ -8,16 +8,20 @@
  	 	 	 	 Using threads to solve the producer-consumer problem
 
 				 Problem description:
-				 (1) single buffer
-				 (2) 2 threads: producer and consumer
+				 (1) single buffer;
+				 (2) 2 threads: producer and consumer;
 
-			 	 pthread_cond_wait() has 3 major internal implementations:
-			 	 (1) unlock mutex: allow other thread to access CR
-			 	 (2) wait self (current thread) in waiting queue
-			 	 (3) once receive wakeup signal from pthread_signal/pthread_broadcast
+				 Solution from pthread library:
+				 (1) Mutex variable (the_mutex), can be lock and unlock, to guard
+				 each CR;
+				 (2) Condition variable (condp and condc) allows thread to be
+				 blocked due to some condition is not met.
+			 	 (3) pthread_cond_wait() has 3 major internal implementations:
+			 	 (3.1) unlock mutex: allow other thread to access CR
+			 	 (3.2) wait self (current thread) in waiting queue
+			 	 (3.3) once receive wakeup signal from pthread_signal/pthread_broadcast
 			 	 	 immediate lock mutex
-
-			 	 The loop enclosing pthread_cond_wait() is while loop, this
+			 	 (4) The loop enclosing pthread_cond_wait() is while loop, this
 			 	 suggests pthread is using MESA monitor
  ============================================================================
  */
@@ -39,7 +43,7 @@ void *producer(void *ptr){					// produce data
 
 		while(buffer !=0){					// if buffer is full, producer waits in waiting queue
 			pthread_cond_wait(&condp, &the_mutex);	// 1) lock producer 2) unlock access to buffer
-		}											// check the note of cond_wait() above
+		}											// for details, check the part about cond_wait() in top notes
 
 		buffer=i;							// put item in buffer
 		pthread_cond_signal(&condc);		// wake up consumer
