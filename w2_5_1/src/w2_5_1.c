@@ -4,7 +4,8 @@
  Author      : 
  Version     :
  Copyright   : Your copyright notice
- Description : System call write is wrapped in C library to a same name function
+ Description : Online course example
+ 				  System call write is wrapped in C library to a same name function
   	  	  	  	  The compiled assembly result (for presentation, may not exactly
   	  	  	  	  same) would be:
   	  	  	  	  ```

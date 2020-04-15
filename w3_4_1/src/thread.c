@@ -4,7 +4,7 @@
  Author      : 
  Version     :
  Copyright   : Your copyright notice
- Description : Check the address space of threads
+ Description : Online course example: Check the address space of threads
  ============================================================================
  */
 

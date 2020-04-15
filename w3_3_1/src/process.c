@@ -4,7 +4,7 @@
  Author      : Vagacoder
  Version     :
  Copyright   : Your copyright notice
- Description : Study Unix/Linux System Call fork(),
+ Description : Online course example: Study Unix/Linux System Call fork(),
  	 	 	 	 which creates a new process from parent process,
  	 	 	 	 in parent process, the return value is pid of child process;
  	 	 	 	 in child process, the return value is 0.

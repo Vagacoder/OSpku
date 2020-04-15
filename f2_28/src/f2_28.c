@@ -17,9 +17,9 @@
 				 P test			  s<0					s>0		s==0
 				 P test op		  sleep					s--		s-- and sleep
 
-				 V before test	   s++					None
+				 V before test	   s++					s++
 				 V test 		  s<=0					s<=0
-				 V test op		  wakeup				s++ and wakeup
+				 V test op		  wakeup				wakeup
 
 				 (2) Can we invert P and V operations? Is there any deadlock?
 				 2x P operations (before insert/remove) can NOT be inverted;

@@ -59,7 +59,7 @@ void *consumer(void *ptr){					// consumer data
 		pthread_mutex_lock(&the_mutex);
 
 		while(buffer==0){
-			pthread_cond_wait(&condc, &the_mutex)
+			pthread_cond_wait(&condc, &the_mutex);
 		}
 
 		buffer = 0;							// take item from buffer
