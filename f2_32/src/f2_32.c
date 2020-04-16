@@ -17,12 +17,12 @@
 				 (2) Condition variable (condp and condc) allows thread to be
 				 blocked due to some condition is not met.
 			 	 (3) pthread_cond_wait() has 3 major internal implementations:
-			 	 (3.1) unlock mutex: allow other thread to access CR
-			 	 (3.2) wait self (current thread) in waiting queue
-			 	 (3.3) once receive wakeup signal from pthread_signal/pthread_broadcast
-			 	 	 immediate lock mutex
+			 	 !(3.1) unlock mutex: allow other thread to access CR
+			 	 (3.2) wait self (current thread) in waiting queue.
+			 	 (3.3) once receive wakeup signal from pthread_signal/pthread_broadcast,
+			 	 	 immediate lock mutex and wakeup self.
 			 	 (4) The loop enclosing pthread_cond_wait() is while loop, this
-			 	 suggests pthread is using MESA monitor
+			 	 suggests pthread is using MESA monitor.
  ============================================================================
  */
 

@@ -22,11 +22,11 @@
 				 V test op		  wakeup				wakeup
 
 				 (2) Can we invert P and V operations? Is there any deadlock?
-				 2x P operations (before insert/remove) can NOT be inverted;
-				 2x V operations (after insert/remove) can be inverted;
+				 ! 2x P operations (before insert/remove) can NOT be inverted;
+				 ! 2x V operations (after insert/remove) can be inverted;
 
 				 (3) Details for deadlock in (2), when 2x P ops are inverted:
-				     Suppose that the two P ops in the producer’s code were
+				    ! Suppose that the two P ops in the producer’s code were
 				   reversed in order, so mutex was decremented before empty
 				   instead of after it. If the buffer were completely full,
 				   the producer would block, with mutex set to 0.
