@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 typedef int semaphore;
-semaphore mutex = 1;			// access to rc
+semaphore mutex = 1;			// access to rc, it is also a CR
 semaphore db = 1;				// access to database, it is a critical region
 int rc = 0;						// number of reader candidate(s), it is also a critical region
 
@@ -58,7 +58,6 @@ void writer(void){				// ! ONLY ONE writer can access to CR at any time
 		v(&db);
 	}
 }
-
 
 P(semaphore s){
 	s--;
