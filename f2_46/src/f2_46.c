@@ -49,6 +49,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define N 5						// number of philosophers
+typedef int semaphore;			// semaphore is a special kind of int
+
+semaphore forks[5];
 
 void philosopher(int i){
 	while(1){
@@ -66,13 +69,32 @@ void philosopher(int i){
 void think(){}
 
 // taking fork
-void take_fork(int i){}
+void take_fork(int i){
+	P(forks[i]);
+}
 
 // put fork
-void put_fork(int i){}
+void put_fork(int i){
+	V(forks[i]);
+}
 
 // eating
 void eat(){}
+
+// standard PV operation for semaphore
+P(semaphore s){
+	s--;
+	if(s < 0){
+		// blocking, move this process to waiting queue; reschedule
+	}
+}
+
+V(semaphore s){
+	s++;
+	if(s<=0){
+		// wake one of related process,
+	}
+}
 
 int main(void) {
 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
