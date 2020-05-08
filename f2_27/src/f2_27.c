@@ -7,11 +7,25 @@
  Description : textbook P.129 figure 2.27
  	 	 	 	 The producer-consumer problem with a !FATAL! race condition
 
+ 	 	 	 	 For this case:
+ 	 	 	 	 1. buffer is empty, count == 0;
+ 	 	 	 	 2. consumer read count and prepare to sleep, but not yet
+ 	 	 	 	 3. producer is switched and add a new item into buffer
+ 	 	 	 	 4. producer wakes up consumer
+ 	 	 	 	 5. switch back to consumer, it receives wakeup signal
+ 	 	 	 	 6. consumer ignore signal, since its already waked up
+ 	 	 	 	 7. consumer continue operation at step 2, to sleep
+ 	 	 	 	 8. producer won't send wakeup sinal again
+ 	 	 	     9. consumer sleep forever
+
  	 	 	 	 To solve the problem, add wakeup waiting bit:
  	 	 	 	 1. When a wakeup is sent to a process that is still awake,
  	 	 	 	 this bit is set;
  	 	 	 	 2. The consumer clears the wakeup waiting bit in every iteration
  	 	 	 	 of the loop.
+
+ 	 	 	 	 Or set 2 operations of checking and wakeup, checking and sleep
+ 	 	 	 	 as atomic, primitive operation
 
  ============================================================================
  */

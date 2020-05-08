@@ -6,8 +6,13 @@
  Copyright   : Your copyright notice
  Description : textbook P. 124 figure 2-23
  	 	 	 	 A proposed solution for critical-region problem.
+
  	 	 	 	 !Wrong solution!, since same process cannot continuously
  	 	 	 	 access to CR. Processes must access to CR in turn!
+
+ 	 	 	 	 This  violates condition 3:
+ 	 	 	 	 One process is being blocked by another process not in its
+ 	 	 	 	 critical region.
  ============================================================================
  */
 
